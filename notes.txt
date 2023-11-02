@@ -1,0 +1,1 @@
+for inspector: NODE_OPTIONS='--inspect'

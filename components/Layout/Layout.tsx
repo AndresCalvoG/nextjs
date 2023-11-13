@@ -7,7 +7,15 @@ const Layout = ({ children }) => {
     <div className={style.container}>
       <Navbar />
       {children}
-      <footer>This is the footer</footer>
+      <footer className="footer">This is the footer</footer>
+
+      <style jsx>
+        {`
+          .footer {
+            background-color: red;
+          }
+        `}
+      </style>
     </div>
   );
 };

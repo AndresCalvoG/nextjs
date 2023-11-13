@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const Home = () => {
-  const [products, setProducts] = useState<TProduct[]>([]);
-
-  useEffect(() => {
-    fetch("/api/avo")
-      .then((response) => response.json())
-      .then((json) => {
-        setProducts(json.data);
-      });
-  }, []);
-
+export const getServerSideProps = async () => {
+  const response = await fetch("http://localhost:3001/api/avo");
+  console.log("response", response);
+  const { data: products } = await response.json();
+  return {
+    props: {
+      products,
+    },
+  };
+};
+const Home = ({ products }: { products: TProduct[] }) => {
   return (
     <div>
       <h1>Home</h1>
